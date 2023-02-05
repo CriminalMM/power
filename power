@@ -1,0 +1,105 @@
+local library = loadstring(game.HttpGet(game, "https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/0x"))()
+
+local w1 = library:Window("Main") -- Text
+
+w1:Button(
+    "Infinite Cash",
+    function()
+        local args = {
+    [1] = math.huge,
+    [2] = math.huge
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("SurfaceCompleted"):FireServer(unpack(args))
+    end
+) 
+
+w1:Button(
+    "Give Much Cash",
+    function()
+        local args = {
+    [1] = 999999999999999999999999999999,
+    [2] = 999999999999999999999999999999
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("SurfaceCompleted"):FireServer(unpack(args))
+    end
+) 
+
+w1:Toggle(
+    "Mini Cash Loop",
+    "cashy",
+    false,
+    function(toggled)
+while wait() do
+local args = {
+    [1] = toggled,  
+    [2] = 1111111
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("SurfaceCompleted"):FireServer(unpack(args)) 
+end
+    end
+) 
+
+w1:Button(
+    "Fill Water In Gun",
+    function()
+        local args = {
+    [1] = true
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("RefillRemote"):FireServer(unpack(args))
+    end
+) 
+
+
+
+w1:Toggle(
+    "Inf Water In Gun",
+    "inf",
+    false,
+    function(toggled)
+        local args = {
+    [1] = toggled
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("RefillRemote"):FireServer(unpack(args)) 
+    end
+) 
+
+w1:Button(
+    "Destroy GUI",
+    function()
+        for i, v in pairs(game.CoreGui:GetChildren()) do
+            if v:FindFirstChild("Top") then
+                v:Destroy()
+            end
+        end
+    end
+) -- Text, Callback
+
+w1:Label("Pressure Wash Simulator") -- Text
+
+local w1 = library:Window("Local") -- Text
+
+w1:Slider(
+    "WalkSpeed",
+    "WS",
+    16,
+    300,
+    function(value)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = value
+    end
+) -- Text, Flag, Minimum, Maximum, Callback, Default (Optional), Flag Location (Optional)
+
+w1:Slider(
+    "FoV",
+    "FoV",
+    70,
+    300,
+    function(value)
+        game:GetService("Workspace").Camera.FieldOfView = value
+    end,
+    100
+) -- Text, Flag, Minimum, Maximum, Callback, Default (Optional), Flag Location (Optional)
